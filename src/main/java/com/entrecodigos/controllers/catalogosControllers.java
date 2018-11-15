@@ -5,25 +5,28 @@
  */
 package com.entrecodigos.controllers;
 
-import com.entrecodigos.dao.prueba;
+
+import com.entrecodigos.daoimp.pruebadaoimp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
  * @author samv
  */
-@RestController("/catalogos")
+@RestController
+@RequestMapping("/catalogos")
 public class catalogosControllers {
     
     @Autowired
     @Qualifier("objEditorialDao")
-    private prueba p;
+    private pruebadaoimp p;
     
     @GetMapping("/inicio")
     public Object obtenerLink(){
-      return this.p.getPrueba();
+      return p.getPrueba();
     }
 }

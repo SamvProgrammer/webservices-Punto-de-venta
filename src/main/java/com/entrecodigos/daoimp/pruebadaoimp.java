@@ -5,7 +5,6 @@
  */
 package com.entrecodigos.daoimp;
 
-import com.entrecodigos.dao.prueba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -17,13 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Component("objEditorialDao")
 @Transactional
-public class pruebadaoimp implements prueba{
+public class pruebadaoimp {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Override
     public Object getPrueba() {
-        Object consulta = jdbcTemplate.queryForList("select * from datos.p_quirog limit 10;");
+        Object consulta = jdbcTemplate.queryForList("select * from productos;");
         return consulta;
     }
 }
